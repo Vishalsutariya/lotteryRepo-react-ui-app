@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+import lottery from './lottery';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  //constructor can be written as state = { manager: '' }; also as per ECMAScript2016
+  constructor(props) {
+    super(props);
+
+    this.state = { manager: '' };
+  }
+
+  async componentDidMount() {
+    const manager = await lottery.methods.manager().call();
+
+    this.setState({ manager }) // is equal to {manager: manager}
+  }
+
+  render() {
+
+    return (
+      <div>
+        <h2>Lottery contract</h2>
+        <p>This contract is managed by {this.state.manager}</p>
+      </div>
+    );
+  }
+
 }
 
 export default App;
