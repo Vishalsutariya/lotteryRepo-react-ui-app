@@ -3,7 +3,7 @@ This repo contains UI code of lotteryRepo-smart-contract - https://github.com/Vi
 
 steps for setup:
 
-Clone this Repo
-Go inside lottery-react folder
-Run npm install
-Run npm start
+1. Clone this Repo
+2. Go inside lottery-react folder
+3. Run npm install
+4. Run npm start
